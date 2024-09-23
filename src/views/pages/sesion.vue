@@ -44,7 +44,7 @@
   
   
   
-<!--   
+  
         <div
           style="position:absolute;display:flex;right:100%;gap:10rem; height:100vh;max-width:100%; justify-content:space-around; flex-direction:column;z-index: 9;">
   
@@ -61,7 +61,7 @@
           <img style="width:15vw;" v-for="character in [1,2,3,4,5]" :src="`/images/burgi.png`" alt="">
   
         </div>
-   -->
+  
   
         <div v-for="(product, index) in products" :key="product.id" class=" col-12  md:col-6 lg:col-4  xl:col-3">
   
