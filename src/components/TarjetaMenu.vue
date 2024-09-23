@@ -41,10 +41,27 @@
 
 
             </div>
+
+            <span>
+
+<Tag style="background-color: red; color: white;">
+    <b style="color: white;">
+    {{props.product.gramos}} GRAMOS
+
+</b>
+</Tag>
+
+</span>
+
+
             
             <span>
-                    {{truncatedDescription?.toLocaleLowerCase()}} 
+                   
+                
+                {{truncatedDescription?.toLocaleLowerCase()}} 
             </span>
+
+            
             
             <div style="display: flex;justify-content: end; align-items: center;">
 
