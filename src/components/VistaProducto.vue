@@ -44,14 +44,33 @@
 
 
 
+     
       <div class="col-12  p-0 mt-0 shadow-5"
         style="display: flex;align-items: center; max-height: 45rem; background-color:white;border-radius: 0.5rem; ">
 
 
-        <img loading="lazy" class="col-12 p-2 m-0" :src="`https://backend.salchimonster.com/read-product-image/600/${store.currentProduct.product_name}`"
-           style="width: 100%;object-fit: contain; aspect-ratio: 1/1;">
+        <img  :onload="seeImage" class="col-12 p-2 m-0" :src="`https://backend.salchimonster.com/read-product-image/600/${store.currentProduct.product_name}`"
+          alt="" v-show="see" style="width: 100%;object-fit: contain; aspect-ratio: 1/1;">
 
       </div>
+
+
+
+
+      <div v-show="!see" class="col-12  p-0 mt-0 shadow-5"
+        style="display: flex;align-items: center; max-height: 45rem; background-color:white;border-radius: 0.5rem; ">
+
+
+        <div style="width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center">
+          <img  class="col-12 p-2 m-0" :src="`https://backend.salchimonster.com/read-product-image/96/${store.currentProduct.product_name}`"
+           style="width: 100%;object-fit: contain; aspect-ratio: 1/1;">
+
+
+
+        </div>
+      
+      </div>
+
 
 
 
