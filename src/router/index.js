@@ -43,6 +43,14 @@ const router = createRouter({
               component: () => import('@/views/pages/sesion.vue'),
               meta: { title:'MENU' },
             },
+
+            {
+              path: '/:menu_name/:category_id/:product_name/:product_id',
+              name: 'sesion_2',
+              component: () => import('@/views/pages/sesion.vue'),
+              meta: { title:'MENU' },
+            },
+
             {
               path: '/',
               name: 'main',
@@ -58,6 +66,13 @@ const router = createRouter({
           component: () => import('@/views/pages/sedes.vue'),
           meta: { title:'Sedes' },
         },
+        
+        // {
+        //   path: '/reservas',
+        //   name: 'reservas',
+        //   component: () => import('@/views/pages/reservas.vue'),
+        //   meta: { title:'Reservas' },
+        // },
 
         {
           path: '/gracias',
@@ -91,7 +106,12 @@ const router = createRouter({
           component: () => import('@/views/pages/cart.vue'),
          
         },
-      
+        // {
+        //   path: '/ingreso-call-center',
+        //   name: 'ingreso-call-center',
+        //   component: () => import('@/views/pages/auth/login.vue'),
+        
+        // },
         {
           path: '/pay',
           name: 'pay',
@@ -145,7 +165,7 @@ router.beforeEach(async(to, from, next) => {
     document.title = `${to.meta.title} - ${to.params.menu_name}`;
   } else {
     // Configurar un título por defecto si no hay 'menu_name'
-    document.title = to.meta.title || 'PAPASMONSTER';
+    document.title = to.meta.title || 'Salchimonster';
   }
 
 
@@ -158,14 +178,14 @@ router.beforeEach(async(to, from, next) => {
   // alert(site_id)
   // console.log(site_id)
   // const open = await estado(site_id)
-  console.log(open)
+  // console.log(open)
 
   if (to.matched.some(record => record.meta.requireOpen)) {
     // const token = thanks_data.value?.user_data;
 
     if (store.status == 'cerrado' && site_id) {
       verCerrado.value = true
-      next()
+      next('/cart')
 
     } else {
       // Si hay token, permite el acceso
@@ -182,10 +202,10 @@ router.beforeEach(async(to, from, next) => {
 
 
 
-pixel.init()
+// pixel.init()
 router.afterEach( ( to, from ) => {
   // Esto rastreará una "PageView" cada vez que el usuario cambie de ruta
-  pixel.sendTrackingEvent( 'PageView');
+  // pixel.sendTrackingEvent( 'PageView');
 });
 
 
