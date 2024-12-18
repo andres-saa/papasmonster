@@ -39,9 +39,6 @@
 </template>
 
 
-
-
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import router from '@/router/index.js';
@@ -74,8 +71,6 @@ const codigos = [
 24,
 4,
 5
-
-
 ]
 
 </script>

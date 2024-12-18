@@ -1,6 +1,6 @@
 <template>
-    <div class="p-1 my-5 md:my-0 col-12">
-        <div style="position: sticky; top: 5rem;border-radius: 0.5rem; z-index: 1000;" class="col-12 p-3 p-shadow m-0  ">
+    <div class="p-1 my-5 md:my-0 col-12" style="">
+        <div style="position: sticky; top: 5rem;background-color: white; border-radius: 0.5rem; z-index: 1000;" class="col-12 p-3 p-shadow m-0  ">
 
             <h5> <b>Resumen</b> </h5>
 
