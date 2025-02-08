@@ -1,5 +1,5 @@
 <template>
-  <!-- <div style="display: flex;justify-content: end; padding: 0rem 1rem ;gap: 0rem; width: 100%;background-color: black">
+  <div style="display: flex;justify-content: end; padding: 0rem 1rem ;gap: 0rem; width: 100%;background-color: black">
     <a :href="i.href" v-for="i in socialLinks">
       <Button size="small" class="social-btn" style="color: white;" text> <i style="color: white;font-weight: bold;"
           :class="i.icon">
@@ -7,7 +7,7 @@
       </Button>
     </a>
 
-  </div> -->
+  </div>
   <div class="container" :class="barraClase">
 
     <div class="section-logo section">
@@ -112,22 +112,22 @@ onMounted(async () => {
 })
 
 const socialLinks = [
-  {
-    icon: 'pi pi-facebook',
-    href: 'https://www.facebook.com/salchimonsterr'
-  },
-  {
-    icon: 'pi pi-instagram',
-    href: 'https://www.instagram.com/salchimonsterr/'
-  },
+  // {
+  //   icon: 'pi pi-facebook',
+  //   href: 'https://www.facebook.com/salchimonsterr'
+  // },
+  // {
+  //   icon: 'pi pi-instagram',
+  //   href: 'https://www.instagram.com/salchimonsterr/'
+  // },
   {
     icon: 'pi pi-whatsapp',
-    href: 'https://wa.link/5mq1t0'
+    href: 'https://api.whatsapp.com/send?phone=573332817401'
   },
-  {
-    icon: 'pi pi-youtube',
-    href: 'hhttps://www.youtube.com/@Salchimonster/videos'
-  }
+  // {
+  //   icon: 'pi pi-youtube',
+  //   href: 'hhttps://www.youtube.com/@Salchimonster/videos'
+  // }
 ];
 
 
