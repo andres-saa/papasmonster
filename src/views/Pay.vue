@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <Select style="width: 100%;" v-model="user.user.payment_method_option" id="payment_method"
-                        placeholder="METODO DE PAGO" :options="payment_method_options" optionLabel="name" />
+                        placeholder="METODO DE PAGO" :options="payment_method_options.filter(m => m.id != 7)" optionLabel="name" />
                 </div>
 
                 <Textarea v-model="store.cart.order_notes" class="order-notes" placeholder="NOTAS:"></Textarea>

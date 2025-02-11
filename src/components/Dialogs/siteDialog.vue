@@ -1,65 +1,64 @@
 <template>
-    <Dialog style="width: 30rem;max-width: 96%;" v-model:visible="store.visibles.currentSite" header="Selección de sede"
-        :modal="true" class="dialog">
-        <div class="dialog-content">
-            <b class="dialog-title">
-                <!-- {{ store.location }} -->
-            </b>
+  <Dialog style="width: 30rem;max-width: 96%;" v-model:visible="store.visibles.currentSite" header="Selección de sede"
+      :modal="true" class="dialog">
+      <div class="dialog-content">
+          <b class="dialog-title">
+              <!-- {{ store.location }} -->
+          </b>
 
-            <!-- Contenedor principal -->
-            <div class="form-container">
-                <!-- Selección de Ciudad -->
-                <div class="form-group">
-                    <div class="label-spinner">
-                        <label for="city-dropdown" class="label">¿En qué ciudad te encuentras?</label>
-                        <ProgressSpinner v-if="spinnersView.ciudad" class="spinner" strokeWidth="8" fill="var(--white)"
-                            animationDuration=".5s" aria-label="Cargando ciudades" />
-                    </div>
-                    <Dropdown id="city-dropdown" v-model="currenCity" @click="resetNeighborhood" :options="cities"
-                        optionLabel="city_name" placeholder="SELECCIONA UNA CIUDAD" class="dropdown" required />
-                </div>
+          <!-- Contenedor principal -->
+          <div class="form-container">
+              <!-- Selección de Ciudad -->
+              <div class="form-group">
+                  <div class="label-spinner">
+                      <label for="city-dropdown" class="label">¿En qué ciudad te encuentras?</label>
+                      <ProgressSpinner v-if="spinnersView.ciudad" class="spinner" strokeWidth="8" fill="var(--white)"
+                          animationDuration=".5s" aria-label="Cargando ciudades" />
+                  </div>
+                  <Dropdown id="city-dropdown" v-model="currenCity" @click="resetNeighborhood" :options="cities"
+                      optionLabel="city_name" placeholder="SELECCIONA UNA CIUDAD" class="dropdown" required />
+              </div>
 
-                <!-- Selección de Barrio -->
-                <div class="form-group">
-                    <div class="label-spinner">
-                        <label for="neighborhood-dropdown" class="label">¿Cuál es tu barrio?</label>
-                        <div v-if="spinnersView.barrio" class="loading-neighborhood">
-                            <ProgressSpinner class="spinner" strokeWidth="8" fill="var(--white)" animationDuration=".5s"
-                                aria-label="Buscando barrios" />
-                            <p class="loading-text">Buscando barrios...</p>
-                        </div>
-                    </div>
-                    <Dropdown id="neighborhood-dropdown" v-model="currenNeigborhood"
-                        :disabled="!possibleNeigborhoods.length" :options="possibleNeigborhoods" optionLabel="name"
-                        placeholder="Selecciona un barrio" filter filterPlaceholder="Escribe el nombre de tu barrio"
-                        class="dropdown" required />
-                </div>
+              <!-- Selección de Barrio -->
+              <div class="form-group">
+                  <div class="label-spinner">
+                      <label for="neighborhood-dropdown" class="label">¿Cuál es tu barrio?</label>
+                      <div v-if="spinnersView.barrio" class="loading-neighborhood">
+                          <ProgressSpinner class="spinner" strokeWidth="8" fill="var(--white)" animationDuration=".5s"
+                              aria-label="Buscando barrios" />
+                          <p class="loading-text">Buscando barrios...</p>
+                      </div>
+                  </div>
+                  <Dropdown id="neighborhood-dropdown" v-model="currenNeigborhood"
+                      :disabled="!possibleNeigborhoods.length" :options="possibleNeigborhoods" optionLabel="name"
+                      placeholder="Selecciona un barrio" filter filterPlaceholder="Escribe el nombre de tu barrio"
+                      class="dropdown" required />
+              </div>
 
-                <!-- Vista Previa de la Sede -->
-                <div class="image-container">
-                    <img v-if="currenNeigborhood?.site_id"
-                        src="https://backend.salchimonster.com/read-photo-product/a1roeK3y"
-                        :class="{ 'default-image': currenNeigborhood.site?.name === 'default' }"
-                        alt="Vista previa de la sede" />
+              <!-- Vista Previa de la Sede -->
+              <div class="image-container">
+                  <img v-if="currenNeigborhood?.site_id"
+                      src="https://backend.salchimonster.com/read-photo-product/a1roeK3y"
+                      :class="{ 'default-image': currenNeigborhood.site?.name === 'default' }"
+                      alt="Vista previa de la sede" />
 
-                    <div v-if="currenNeigborhood?.site_id" class="image-overlay">
-                        <p class="site-info">
-                            <span class="brand-name">PAPASMONSTER </span>
-                            <span class="site-name">{{ currentSite?.site_name }}</span>
-                        </p>
-                    </div>
-                </div>
+                  <div v-if="currenNeigborhood?.site_id" class="image-overlay">
+                      <p class="site-info">
+                          <span class="brand-name">PAPASMONSTER </span>
+                          <span class="site-name">{{ currentSite?.site_name }}</span>
+                      </p>
+                  </div>
+              </div>
 
-                <!-- Botón Guardar -->
-                <div class="button-container">
-                    <Button label="Guardar" @click="setNeigborhood" :disabled="!currenNeigborhood?.name"
-                        class="save-button" />
-                </div>
-            </div>
-        </div>
-    </Dialog>
+              <!-- Botón Guardar -->
+              <div class="button-container">
+                  <Button label="Guardar" @click="setNeigborhood" :disabled="!currenNeigborhood?.name"
+                      class="save-button" />
+              </div>
+          </div>
+      </div>
+  </Dialog>
 </template>
-
 <script setup>
 import { onMounted, ref, watch } from 'vue';
 import { Dialog } from 'primevue';

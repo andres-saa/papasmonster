@@ -50,8 +50,8 @@ const preparar_orden = () => {
     user_data: user_data,
     order_aditionals: [],
     pe_json: order_products,
-    total: cart.cartTotal
-  };   
+    total: 0
+  };
   console.log(order)
 
   return order

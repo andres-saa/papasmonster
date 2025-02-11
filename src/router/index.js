@@ -57,7 +57,7 @@ const router = createRouter({
               meta: {  title:'Rastrear pedido' },
 
             },
-          
+
             {
               path: '/sonando',
               name: 'sonando',
@@ -65,7 +65,7 @@ const router = createRouter({
               meta: {  title:'Sonando SM' },
 
             },
-          
+
 
             {
               path: '/franquicias',
@@ -74,7 +74,7 @@ const router = createRouter({
               meta: {  title:'Franquicias' },
 
             },
-                        
+
 
             {
               path: '/pqrs-user',
@@ -105,14 +105,14 @@ const router = createRouter({
 })
 
 router.beforeEach(async(to, from, next) => {
-  
+
 
   if (to.params.menu_name) {
     // Configurar el título de la página usando el 'menu_name'
     document.title = `${to.meta.title} - ${to.params.menu_name}`;
   } else {
     // Configurar un título por defecto si no hay 'menu_name'
-    document.title = to.meta.title || 'Salchimonster';
+    document.title = to.meta.title || 'Papasmonter';
   }
   next()
 })
